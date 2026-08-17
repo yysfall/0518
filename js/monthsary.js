@@ -28,7 +28,7 @@ const monthsaries = [
             },
             {
                 type: "video",
-                src: "assets/monthsaries/month-01/04.mp4"
+                src: "assets/monthsaries/month-01/04.MP4"
             },
             {
                 type: "image",
