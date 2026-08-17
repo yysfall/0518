@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Important for iPhone -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#fff7f8">
+
+    <title>Our Monthsaries ♡</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Ephesis&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<main class="monthsary-page">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">Paul & Jen</div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="monthsary.html" class="active">Monthsary</a>
+            <a href="letter.html">Letter</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Header -->
+    <header class="monthsary-header">
+
+        <div class="heart">
+            ♡
+        </div>
+
+        <h1 class="monthsaryh1">Our Monthsaries</h1>
+
+        <div class="months-together">
+            <span id="totalMonths">0</span>
+            months of us ♡
+        </div>
+
+    </header>
+
+
+    <!-- ================================ -->
+    <!-- MONTHSARY ARCHIVE                 -->
+    <!-- ================================ -->
+
+    <section id="archiveView">
+
+        <div class="archive-heading">
+
+            <h2>
+                Our memories
+            </h2>
+
+            <p>
+                Choose a month to look back on.
+            </p>
+
+        </div>
+
+
+        <!-- JavaScript will generate cards here -->
+        <div
+            id="monthsaryGrid"
+            class="monthsary-grid"
+        ></div>
+
+    </section>
+
+
+    <!-- ================================ -->
+    <!-- MONTHSARY VIEWER                 -->
+    <!-- ================================ -->
+
+    <section
+        id="viewerView"
+        class="viewer-view hidden"
+    >
+
+        <button
+            class="back-button"
+            onclick="closeViewer()"
+        >
+            ← Back to our memories
+        </button>
+
+
+        <div class="viewer">
+
+            <!-- Month information -->
+
+            <div class="viewer-info">
+
+                <div
+                    id="viewerMonth"
+                    class="viewer-month"
+                >
+                    Month 1
+                </div>
+
+                <h2 id="viewerTitle">
+                    Our First Monthsary
+                </h2>
+
+                <div
+                    id="viewerDate"
+                    class="viewer-date"
+                >
+                    June 18, 2026
+                </div>
+
+            </div>
+
+
+            <!-- Photo -->
+
+            <div class="photo-viewer">
+
+                <button
+                    class="photo-arrow left"
+                    onclick="previousPhoto()"
+                    aria-label="Previous photo"
+                >
+                    ‹
+                </button>
+
+
+                <img
+                    id="viewerPhoto"
+                    src=""
+                    alt="Monthsary memory"
+                >
+
+
+                <button
+                    class="photo-arrow right"
+                    onclick="nextPhoto()"
+                    aria-label="Next photo"
+                >
+                    ›
+                </button>
+
+            </div>
+
+
+            <!-- Photo indicators -->
+
+            <div
+                id="photoDots"
+                class="photo-dots"
+            ></div>
+
+
+            <!-- Message -->
+
+            <div class="viewer-message">
+
+                <div class="quote-mark">
+                    “
+                </div>
+
+                <p id="viewerMessage">
+                </p>
+
+            </div>
+
+
+            <!-- Month navigation -->
+
+            <div class="month-navigation">
+
+    <button
+        id="previousMonthButton"
+        class="month-nav-button"
+        onclick="previousMonth()"
+    >
+        <span class="nav-arrow">←</span>
+        <span id="previousMonthName">Previous</span>
+    </button>
+
+
+    <div class="month-position">
+        <span id="monthPosition">
+            1 / 12
+        </span>
+    </div>
+
+
+    <button
+        id="nextMonthButton"
+        class="month-nav-button"
+        onclick="nextMonth()"
+    >
+        <span id="nextMonthName">Next</span>
+        <span class="nav-arrow">→</span>
+    </button>
+
+</div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Made with ♡, just for you.
+    </footer>
+
+</main>
+
+
+<script src="js/monthsary.js"></script>
+
+</body>
+</html>

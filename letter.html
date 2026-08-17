@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>A Letter For You ♡</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #4A0B1A;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .letter {
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+        }
+
+        .letter img {
+            display: block;
+
+            max-width: 90vw;
+            max-height: 82vh;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            border-radius: 8px;
+        }
+
+        .home-button {
+            margin-top: 24px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 12px 24px;
+
+            border: 1px solid #FFF9F3;
+            border-radius: 999px;
+
+            background: transparent;
+
+            color: #FFF9F3;
+
+            font-size: 0.9rem;
+            font-weight: 500;
+
+            text-decoration: none;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .home-button:hover {
+            background: #FFF9F3;
+
+            color: #800020;
+
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+
+            .letter img {
+                max-width: 92vw;
+                max-height: 78vh;
+            }
+
+            .home-button {
+                margin-top: 18px;
+
+                padding: 11px 22px;
+
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="letter">
+
+        <img
+            src="assets/letter/letter.png"
+            alt="A letter for you"
+        >
+
+        <a
+            href="index.html"
+            class="home-button"
+        >
+            ← Back to Home
+        </a>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,1686 @@
+:root {
+    /* =========================================
+       MAIN BACKGROUND
+       ========================================= */
+
+    --bg: #4A0B1A;
+    --bg-dark: #320711;
+
+
+    /* =========================================
+       CARDS / CONTENT
+       ========================================= */
+
+    --card: #FFF9F3;
+    --card-dark: #F1E6DE;
+
+
+    /* =========================================
+       TEXT
+       ========================================= */
+
+    --text: #FFF9F3;
+    --text-dark: #32191E;
+
+    --muted: #D8C2C4;
+    --muted-dark: #765A60;
+
+
+    /* =========================================
+       BURGUNDY
+       ========================================= */
+
+    --accent: #800020;
+    --accent-dark: #5C0017;
+    --accent-light: #9A344C;
+
+
+    /* =========================================
+       SUBTLE ROMANTIC ACCENTS
+       ========================================= */
+
+    --soft: #641326;
+    --rose: #B9878D;
+    --cream: #FFF9F3;
+    --wine-soft: #7A2438;
+
+
+    /* =========================================
+       BORDERS
+       ========================================= */
+
+    --border: #743044;
+    --border-dark: #8B4657;
+    --border-light: #E0D0C8;
+
+
+    /* =========================================
+       SHADOW
+       ========================================= */
+
+    --shadow:
+        0 18px 50px rgba(25, 0, 8, 0.30);
+}
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+
+        var(--bg);
+    }
+
+    .page {
+      width: min(1100px, 92%);
+      margin: auto;
+      padding: 38px 0 60px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 55px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      font-family: "Ephesis", cursive;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-family: "Courier Prime", monospace;
+      font-size: .88rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .heart {
+      font-size: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      50% { transform: translateY(-7px); }
+    }
+
+    h1 {
+    
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-weight: normal;
+      margin: 10px 0;
+      font-family: "Ephesis", cursive;
+    }
+
+    .subtitle {
+      color: var(--accent-light);
+      font-family: "Courier Prime", monospace;
+      font-size: .95rem;
+    }
+
+    .section-title {
+        color: var(--accent-dark);
+      font-size: 1.25rem;
+      margin: 0 0 15px;
+      font-family: "Courier Prime", monospace;
+    }
+
+    .counters {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 27px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .counter-card {
+      text-align: center;
+    }
+
+    .counter-icon {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .counter-label {
+      color: var(--accent-light);
+      font-family: "Courier Prime", monospace;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+    }
+
+    .number {
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      margin: 7px 0 2px;
+      color: var(--accent-dark);
+    }
+
+    .date-label {
+      color: var(--accent-light);
+      font-family: "Courier Prime", monospace;
+      font-size: .78rem;
+    }
+
+    .countdown {
+      margin-top: 18px;
+    }
+
+    .countdown-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    select, input {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      color: var(--accent-dark);
+      padding: 9px 11px;
+      font-family: "Courier Prime", monospace;
+      outline: none;
+    }
+
+    .countdown-number {
+      font-size: 3.3rem;
+      color: var(--accent-dark);
+      margin: 18px 0 2px;
+    }
+
+    .countdown-event {
+      font-family: "Courier Prime", monospace;
+      color: var(--accent-light);
+      font-size: .84rem;
+    }
+
+    .message-card {
+      margin-top: 18px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .message-card::before {
+      content: "♡";
+      position: absolute;
+      font-size: 9rem;
+      color: #f9e4e4;
+      right: -15px;
+      bottom: -65px;
+      z-index: 0;
+    }
+
+    .message-content { position: relative; z-index: 1; }
+
+    .message-title {
+      font-size: .82rem;
+      margin-bottom: 13px;
+      color: var(--accent-light);
+      font-family: "Courier Prime", monospace;
+    }
+
+    #message {
+      max-width: 720px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 2rem;
+      min-height: 55px;
+      color: var(--accent-dark);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    button {
+      margin-top: 18px;
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 20px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font-family: "Courier Prime", monospace;
+      transition: .2s ease;
+    }
+
+    button:hover {
+      background: var(--muted);
+      transform: translateY(-1px);
+    }
+
+    .coming-soon {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .feature {
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 9px;
+    }
+
+    .feature h3 {
+      margin: 4px 0 8px;
+      font-size: 1.25rem;
+      font-weight: normal;
+    }
+
+    .feature p {
+      margin: 0 auto;
+      max-width: 330px;
+      color: var(--accent-dark);
+      line-height: 1.55;
+      font-family: "Courier Prime", monospace;
+      font-size: .82rem;
+    }
+
+    .badge {
+      display: inline-block;
+      margin: 13px auto 0;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-family: "Courier Prime", monospace;
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-family: "Courier Prime", monospace;
+      font-size: .75rem;
+      margin-top: 42px;
+    }
+
+    @media (max-width: 700px) {
+      nav { margin-bottom: 38px; }
+      .nav-links { gap: 12px; font-size: .75rem; }
+      .counters, .coming-soon { grid-template-columns: 1fr; }
+      .card { padding: 22px; }
+      .countdown-top { flex-direction: column; align-items: stretch; }
+    }
+    
+    /* =========================================
+   MONTHSARY PAGE
+   ========================================= */
+
+.monthsary-page {
+    width: min(1100px, 92%);
+    margin: auto;
+    padding: 38px 0 60px;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.monthsary-header {
+    text-align: center;
+    margin: 45px 0 55px;
+}
+
+.header-heart {
+    font-size: 2rem;
+    color: #800020;
+    margin-bottom: 8px;
+}
+
+.monthsary-header h1 {
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    font-weight: normal;
+    margin: 0 0 12px;
+    font-family: "Ephesis", cursive;
+}
+
+.monthsary-header p {
+    color: var(--muted);
+    font-family: "Courier Prime", monospace;
+    font-size: .9rem;
+}
+
+.months-together {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    padding: 9px 16px;
+
+    background: #f3dfe4;
+
+    border-radius: 999px;
+
+    color: #800020;
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: .8rem;
+}
+
+
+/* =========================================
+   ARCHIVE
+   ========================================= */
+
+.archive-heading {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.archive-heading h2 {
+    margin: 0 0 6px;
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-family: "Courier Prime", monospace;
+}
+
+.archive-heading p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: .8rem;
+}
+
+
+/* =========================================
+   MONTHSARY GRID
+   ========================================= */
+
+.monthsary-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   PHOTO-FIRST MONTHSARY GRID
+   ========================================= */
+
+.monthsary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.month-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+
+    border: none;
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: #f3dfe4;
+
+    box-shadow:
+        0 15px 40px rgba(128, 0, 32, .10);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.month-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 20px 45px rgba(128, 0, 32, .16);
+}
+
+
+/* Photo */
+
+.month-thumbnail {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #f3dfe4;
+}
+
+.month-thumbnail img,
+.month-thumbnail video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform .4s ease;
+}
+
+.month-card:hover .month-thumbnail img,
+.month-card:hover .month-thumbnail video {
+    transform: scale(1.05);
+}
+.month-card:hover
+.month-thumbnail img {
+    transform: scale(1.05);
+}
+
+
+/* Dark gradient at bottom */
+
+.month-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 55%;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, .65),
+            rgba(0, 0, 0, 0)
+        );
+
+    pointer-events: none;
+}
+
+
+/* Text over image */
+
+.month-card-info {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+
+    padding: 0;
+
+    color: white;
+    font-family: "Courier Prime", monospace;
+}
+
+.month-number {
+    color: rgba(255,255,255,.85);
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: .68rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.4px;
+}
+
+.month-card h3 {
+    margin: 4px 0 3px;
+
+    color: white;
+
+    font-size: 1.8rem;
+
+    font-weight: normal;
+    font-family: "Ephesis", cursive
+}
+
+.month-card-date {
+    color: rgba(255,255,255,.78);
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: .68rem;
+}
+
+
+/* =========================================
+   MOBILE GRID
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .monthsary-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .month-card {
+        border-radius: 16px;
+    }
+
+    .month-card-info {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .month-card h3 {
+        font-size: .88rem;
+    }
+
+    .month-number {
+        font-size: .58rem;
+    }
+
+    .month-card-date {
+        font-size: .58rem;
+    }
+}
+
+
+/* Very small screens */
+
+@media (max-width: 360px) {
+
+    .monthsary-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================================
+   VIEWER
+   ========================================= */
+
+.viewer-view {
+
+    max-width: 850px;
+
+    margin: auto;
+
+}
+
+
+.hidden {
+
+    display: none !important;
+
+}
+
+
+.back-button {
+
+    border: none;
+
+    background: var(--muted);
+
+    color: var(--accent-dark);
+
+    font-family: "Courier Prime", monospace;
+
+    cursor: pointer;
+
+    padding: 10px 10px;
+
+    font-size: .82rem;
+
+}
+
+
+.viewer {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+}
+
+
+.viewer-info {
+
+    margin-bottom: 25px;
+    
+
+}
+
+
+.viewer-month {
+
+    color: var(--muted);
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: .7rem;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+}
+
+
+.viewer-info h2 {
+
+    font-size: clamp(
+        1.7rem,
+        5vw,
+        2.5rem
+    );
+
+    font-weight: normal;
+
+    margin: 7px 0;
+    font-family: "Ephesis", cursive;
+
+}
+
+
+.viewer-date {
+
+    color: var(--muted);
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: .8rem;
+
+}
+
+/* =========================================
+   LETTER / IMAGE
+   ========================================= */
+
+.photo-viewer > img#viewerPhoto {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    /*
+       Don't crop the letter.
+    */
+    object-fit: contain;
+
+    /*
+       Important:
+       The image determines its own height.
+    */
+    max-height: none;
+
+    background: var(--muted );
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+/* =========================================
+   PHOTO VIEWER
+   ========================================= */
+
+
+.photo-viewer {
+    position: relative;
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--card);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 50px rgba(20, 0, 8, 0.20);
+}
+
+
+
+.photo-viewer img,
+.photo-viewer video {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: contain;
+
+    background: #f7ecee;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* Photo navigation buttons */
+
+
+.photo-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 20;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 248, 242, 0.94);
+
+    color: var(--accent);
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 20px rgba(20, 0, 8, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.photo-arrow.left {
+    left: 14px;
+}
+
+
+.photo-arrow.right {
+    right: 14px;
+}
+
+
+.photo-arrow:hover {
+    transform:
+        translateY(-50%)
+        scale(1.08);
+
+    background: #ffffff;
+}
+
+
+/* =========================================
+   PHOTO DOTS
+   ========================================= */
+
+.photo-dots {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 16px;
+
+}
+
+
+.photo-dot {
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #d9b8c0;
+
+    transition: .2s ease;
+
+}
+
+
+.photo-dot.active {
+
+    width: 18px;
+
+    border-radius: 999px;
+
+    background: #800020;
+
+}
+
+
+/* =========================================
+   MESSAGE
+   ========================================= */
+
+.viewer-message {
+
+    max-width: 600px;
+
+    margin: 35px auto;
+
+    padding: 25px;
+
+    position: relative;
+
+    background: rgba(255,255,255,.7);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+}
+
+
+.quote-mark {
+
+    font-size: 3rem;
+
+    line-height: .5;
+
+    color: #800020;
+
+}
+
+
+.viewer-message p {
+
+    margin: 12px 0 0;
+
+    color: var(--accent-dark);
+
+    line-height: 1.8;
+
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+
+/* =========================================
+   MONTH NAVIGATION
+   ========================================= */
+
+.month-navigation {
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    gap: 15px;
+
+    max-width: 720px;
+
+    margin: 30px auto 0;
+}
+
+
+.month-nav-button {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0;
+
+    padding: 10px 14px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    border: 1px solid #e8cbd2;
+
+    border-radius: 999px;
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: .75rem;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+.month-nav-button:first-child {
+    justify-self: start;
+}
+
+
+.month-nav-button:last-child {
+    justify-self: end;
+}
+
+
+.month-nav-button:hover:not(:disabled) {
+    background: #f3dfe4;
+    color: var(--accent-dark);
+    transform: translateY(-1px);
+}
+
+
+.month-nav-button:disabled {
+    opacity: .35;
+    color: var(--muted);
+    cursor: not-allowed;
+}
+
+
+.nav-arrow {
+    font-size: 1rem;
+}
+
+
+.month-position {
+    color: var(--muted);
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: .72rem;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 500px) {
+
+    .month-navigation {
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-areas:
+            "position position"
+            "previous next";
+
+        gap: 12px;
+
+        margin-top: 25px;
+    }
+
+
+    .month-position {
+        grid-area: position;
+
+        text-align: center;
+
+        margin-bottom: 3px;
+    }
+
+
+    .month-nav-button:first-child {
+        grid-area: previous;
+
+        justify-self: stretch;
+
+        justify-content: center;
+    }
+
+
+    .month-nav-button:last-child {
+        grid-area: next;
+
+        justify-self: stretch;
+
+        justify-content: center;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+    @media (max-width: 700px) {
+
+    .photo-viewer {
+        width: 100%;
+
+        border-radius: 14px;
+    }
+
+
+    .photo-viewer > img#viewerPhoto {
+        width: 100%;
+        height: auto;
+
+        /*
+           No forced 4:5 ratio.
+           A letter can be as tall as necessary.
+        */
+    }
+
+
+    .memory-video video {
+        width: 100%;
+        height: auto;
+
+        max-height: 75vh;
+    }
+
+
+    .photo-arrow {
+        width: 36px;
+        height: 36px;
+
+        font-size: 25px;
+    }
+
+
+    .photo-arrow.left {
+        left: 8px;
+    }
+
+
+    .photo-arrow.right {
+        right: 8px;
+    }
+
+}
+    .monthsary-page {
+
+        width: 90%;
+
+        padding-top:
+            max(25px, env(safe-area-inset-top));
+
+        padding-bottom:
+            max(45px, env(safe-area-inset-bottom));
+
+    }
+
+
+    .navbar {
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .monthsary-header {
+
+        margin:
+            30px 0 40px;
+
+    }
+
+
+    .monthsary-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+
+    .month-card {
+
+        border-radius: 17px;
+
+    }
+
+
+    .month-card-info {
+
+        padding: 13px;
+
+    }
+
+
+    .month-card h3 {
+
+        font-size: .95rem;
+
+    }
+
+
+    .month-card-date {
+
+        font-size: .65rem;
+
+    }
+
+
+    .photo-viewer {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    background: #f7ecee;
+
+    box-shadow:
+        0 20px 60px rgba(128, 0, 32, .12);
+
+    touch-action: pan-y;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.photo-viewer img,
+.photo-viewer video {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: contain;
+
+    background: #f7ecee;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+    pointer-events: none;
+}
+
+
+    .photo-arrow {
+
+        width: 38px;
+
+        height: 38px;
+
+    }
+
+
+    .viewer-message {
+
+        padding: 20px;
+
+        margin:
+            25px auto;
+
+    }
+
+
+    .month-navigation {
+
+        gap: 10px;
+
+    }
+
+
+    .month-navigation button {
+
+        padding:
+            10px 13px;
+
+        font-size: .72rem;
+
+    }
+
+}
+
+
+/* Very small phones */
+
+@media (max-width: 380px) {
+
+    .monthsary-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* =========================================
+   PERSONAL MEMORY VIDEO PLAYER
+   ========================================= */
+
+.memory-video {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: var(--bg-dark);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.memory-video video {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-height: 80vh;
+
+    object-fit: contain;
+
+    background: var(--bg-dark);
+}
+
+/* =========================================
+   CENTER PLAY BUTTON
+   ========================================= */
+
+.memory-play-button {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 0 0 4px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, .94);
+
+    color: #800020;
+
+    font-size: 1.45rem;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 30px
+        rgba(128, 0, 32, .22);
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease;
+
+    z-index: 10;
+}
+
+
+.memory-play-button:hover {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.08);
+
+}
+
+
+.memory-play-button.hidden {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+
+/* =========================================
+   VIDEO OVERLAY
+   ========================================= */
+
+.memory-video-overlay {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding:
+        45px 18px 15px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(128, 0, 32, .45),
+            rgba(128, 0, 32, 0)
+        );
+
+    z-index: 8;
+
+    opacity: 0;
+
+    transition:
+        opacity .25s ease;
+}
+
+
+.memory-video:hover
+.memory-video-overlay,
+
+.memory-video.show-controls
+.memory-video-overlay {
+
+    opacity: 1;
+
+}
+
+
+/* =========================================
+   PROGRESS BAR
+   ========================================= */
+
+.memory-progress {
+
+    width: 100%;
+
+    height: 4px;
+
+    margin-bottom: 10px;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    background:
+        rgba(255, 255, 255, .4);
+
+    border-radius: 999px;
+
+    cursor: pointer;
+}
+
+
+.memory-progress::-webkit-slider-thumb {
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    width: 12px;
+    height: 12px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    cursor: pointer;
+}
+
+
+.memory-progress::-moz-range-thumb {
+
+    width: 12px;
+    height: 12px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   CONTROL ROW
+   ========================================= */
+
+
+.memory-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.memory-control-left,
+.memory-control-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.memory-control-button {
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 1rem;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+.memory-time {
+
+    color: white;
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: .68rem;
+}
+
+
+
+/* =========================================
+   MEMORY LABEL
+   ========================================= */
+
+.memory-label {
+
+    position: absolute;
+
+    top: 15px;
+    left: 16px;
+
+    z-index: 5;
+
+    padding:
+        6px 11px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, .88);
+
+    color: #800020;
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: .65rem;
+
+    letter-spacing: .5px;
+
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+      .photo-arrow {
+
+        width: 36px;
+        height: 36px;
+
+        font-size: 25px;
+
+    }
+
+
+    .photo-arrow.left {
+
+        left: 9px;
+
+    }
+
+
+    .photo-arrow.right {
+
+        right: 9px;
+
+    }
+
+
+    .memory-video video {
+
+        aspect-ratio: 4 / 5;
+
+    }
+
+
+    .memory-play-button {
+
+        width: 58px;
+        height: 58px;
+
+        font-size: 1.3rem;
+
+    }
+
+
+    .memory-video-overlay {
+
+        opacity: 1;
+
+        padding:
+            40px 13px 11px;
+
+    }
+
+
+    .memory-control-left,
+    .memory-control-right {
+
+        gap: 7px;
+
+    }
+
+
+    .memory-control-button {
+
+        width: 28px;
+        height: 28px;
+
+    }
+
+
+    .memory-label {
+
+        top: 11px;
+        left: 11px;
+
+        font-size: .6rem;
+
+    }
+
+}

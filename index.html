@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Little World ♡</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Ephesis&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <main class="page">
+    <nav>
+      <div class="logo">Paul & Jen</div>   
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="monthsary.html">Monthsary</a>
+        <a href="letter.html">Letter</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="heart">♡</div>
+      <h1>Paul & Jen</h1>
+    </section>
+
+    <section class="counters">
+      <div class="card counter-card">
+        <div class="counter-label">We've known each other for</div>
+        <div class="number" id="knownDuration">0 days</div>
+        <div class="date-label">and counting</div>
+    </div>
+
+    <div class="card counter-card">
+        <div class="counter-label">We've been together for</div>
+        <div class="number" id="togetherDuration">0 days</div>
+        <div class="date-label">and counting</div>
+    </div>
+    </section>
+
+    <section class="card countdown">
+      <div class="countdown-top">
+        <div>
+          <div class="section-title" style="margin:0;">Countdown</div>
+          <div class="date-label">Choose something special to look forward to.</div>
+        </div>
+        <select id="countdownSelect"></select>
+      </div>
+
+      <div class="counter-card">
+        <div class="countdown-number" id="countdownDays">0</div>
+        <div class="countdown-event" id="countdownEvent"></div>
+      </div>
+    </section>
+
+    <section class="card message-card">
+      <div class="message-content">
+        <div class="message-title">A LITTLE REMINDER FOR YOU</div>
+        <p id="message"></p>
+        <button onclick="newMessage()">💌</button>
+      </div>
+    </section>
+
+    <footer>
+      Made with ♡, just for you.
+    </footer>
+  </main>
+
+  <script>
+  /*
+  ============================================
+  PERSONALIZE THESE DATES
+  ============================================
+  Format: YYYY-MM-DD
+  */
+
+  const knownEachOtherDate = "2026-04-25";
+  const relationshipStartDate = "2026-05-18";
+
+
+  /*
+  ============================================
+  COUNTDOWN EVENTS
+  ============================================
+  */
+
+  const countdownEvents = [
+    {
+      name: "Our Next Anniversary",
+      date: "2027-05-18"
+    },
+    {
+      name: "Our Next Monthsary",
+      date: "2026-08-18"
+    },
+  ];
+
+
+  /*
+  ============================================
+  YOUR PERSONAL MESSAGES
+  ============================================
+  */
+
+  const messages = [
+    "I'm so grateful I met you.",
+
+    "I love you always.",
+
+    "I will always choose you and I will always choose to love you.",
+
+    "You are my greatest blessing.",
+
+    "You make everything better.",
+
+    "I love you just the way you are.",
+
+    "I am always proud of you.",
+
+    "Loving you is the easiest thing to do.",
+
+    "You deserve all the good things this world has to offer."
+  ];
+
+
+  /*
+  ============================================
+  DATE FUNCTIONS
+  ============================================
+  */
+
+  function parseDate(dateString) {
+
+    const [year, month, day] =
+      dateString.split("-").map(Number);
+
+    return new Date(
+      year,
+      month - 1,
+      day
+    );
+  }
+
+
+  /*
+  ============================================
+  RELATIONSHIP DURATION
+  ============================================
+  */
+
+  function calculateDuration(startDate) {
+
+    const today = new Date();
+
+    let years =
+      today.getFullYear() -
+      startDate.getFullYear();
+
+    let months =
+      today.getMonth() -
+      startDate.getMonth();
+
+    let days =
+      today.getDate() -
+      startDate.getDate();
+
+
+    // Borrow days from previous month
+    if (days < 0) {
+
+      months--;
+
+      const previousMonth =
+        new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          0
+        );
+
+      days += previousMonth.getDate();
+    }
+
+
+    // Borrow a year
+    if (months < 0) {
+
+      years--;
+
+      months += 12;
+    }
+
+
+    return {
+      years,
+      months,
+      days
+    };
+  }
+
+
+  function formatDuration(duration) {
+
+    const parts = [];
+
+
+    if (duration.years > 0) {
+
+      parts.push(
+        `${duration.years} ${
+          duration.years === 1
+            ? "year"
+            : "years"
+        }`
+      );
+    }
+
+
+    if (duration.months > 0) {
+
+      parts.push(
+        `${duration.months} ${
+          duration.months === 1
+            ? "month"
+            : "months"
+        }`
+      );
+    }
+
+
+    if (
+      duration.days > 0 ||
+      parts.length === 0
+    ) {
+
+      parts.push(
+        `${duration.days} ${
+          duration.days === 1
+            ? "day"
+            : "days"
+        }`
+      );
+    }
+
+
+    return parts.join(", ");
+  }
+
+
+  function updateRelationshipCounters() {
+
+    const knownDuration =
+      calculateDuration(
+        parseDate(
+          knownEachOtherDate
+        )
+      );
+
+
+    const togetherDuration =
+      calculateDuration(
+        parseDate(
+          relationshipStartDate
+        )
+      );
+
+
+    document.getElementById(
+      "knownDuration"
+    ).textContent =
+      formatDuration(
+        knownDuration
+      );
+
+
+    document.getElementById(
+      "togetherDuration"
+    ).textContent =
+      formatDuration(
+        togetherDuration
+      );
+  }
+
+
+  /*
+  ============================================
+  COUNTDOWN
+  ============================================
+  */
+
+  function getDaysUntil(targetDate) {
+
+    const now = new Date();
+
+    // Remove time from today's date
+    const today = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate()
+    );
+
+
+    const target = new Date(
+      targetDate.getFullYear(),
+      targetDate.getMonth(),
+      targetDate.getDate()
+    );
+
+
+    const difference =
+      target.getTime() -
+      today.getTime();
+
+
+    return Math.ceil(
+      difference /
+      (1000 * 60 * 60 * 24)
+    );
+  }
+
+
+  function setupCountdowns() {
+
+    const select =
+      document.getElementById(
+        "countdownSelect"
+      );
+
+
+    // Clear existing options
+    select.innerHTML = "";
+
+
+    countdownEvents.forEach(
+      (event, index) => {
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+
+        option.value = index;
+
+        option.textContent =
+          event.name;
+
+
+        select.appendChild(
+          option
+        );
+      }
+    );
+
+
+    select.addEventListener(
+      "change",
+      updateCountdown
+    );
+
+
+    updateCountdown();
+  }
+
+
+  function updateCountdown() {
+
+    const select =
+      document.getElementById(
+        "countdownSelect"
+      );
+
+
+    const event =
+      countdownEvents[
+        Number(select.value)
+      ];
+
+
+    if (!event) return;
+
+
+    const targetDate =
+      parseDate(event.date);
+
+
+    const days =
+      getDaysUntil(targetDate);
+
+
+    const countdownNumber =
+      document.getElementById(
+        "countdownDays"
+      );
+
+
+    const countdownEvent =
+      document.getElementById(
+        "countdownEvent"
+      );
+
+
+    if (days < 0) {
+
+      countdownNumber.textContent =
+        "Passed";
+
+
+    } else if (days === 0) {
+
+      countdownNumber.textContent =
+        "Today ♡";
+
+
+    } else {
+
+      countdownNumber.textContent =
+        `${days} ${
+          days === 1
+            ? "day"
+            : "days"
+        }`;
+    }
+
+
+    countdownEvent.textContent =
+      `${event.name} • ${
+        targetDate.toLocaleDateString(
+          undefined,
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          }
+        )
+      }`;
+  }
+
+
+  /*
+  ============================================
+  RANDOM MESSAGES
+  ============================================
+  */
+
+  let lastMessageIndex = -1;
+
+
+  function newMessage() {
+
+    if (!messages.length) {
+
+      document.getElementById(
+        "message"
+      ).textContent =
+        "I love you. ♡";
+
+      return;
+    }
+
+
+    let index;
+
+
+    do {
+
+      index =
+        Math.floor(
+          Math.random() *
+          messages.length
+        );
+
+    } while (
+      messages.length > 1 &&
+      index === lastMessageIndex
+    );
+
+
+    lastMessageIndex = index;
+
+
+    document.getElementById(
+      "message"
+    ).textContent =
+      messages[index];
+  }
+
+
+  /*
+  ============================================
+  INITIALIZE EVERYTHING
+  ============================================
+  */
+
+  updateRelationshipCounters();
+
+  setupCountdowns();
+
+  // IMPORTANT:
+  // Show a message immediately when page loads
+  newMessage();
+
+
+  /*
+  ============================================
+  AUTO UPDATE
+  ============================================
+  */
+
+  setInterval(
+    function () {
+
+      updateRelationshipCounters();
+
+      updateCountdown();
+
+    },
+    60000
+  );
+
+</script>
+</body>
+</html>
