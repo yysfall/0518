@@ -6,14 +6,16 @@
   <title>Paul & Jen ♡</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Ephesis&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Ephesis&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <main class="page">
+
     <nav>
-      <div class="logo">Paul & Jen</div>   
+      <div class="logo">Paul & Jen</div>
+
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="monthsary.html">Monthsary</a>
@@ -21,54 +23,132 @@
       </div>
     </nav>
 
+
     <section class="hero">
+
       <div class="heart">♡</div>
+
       <h1>Paul & Jen</h1>
+
     </section>
+
 
     <section class="counters">
-      <div class="card counter-card">
-        <div class="counter-label">We've known each other for</div>
-        <div class="number" id="knownDuration">0 days</div>
-        <div class="date-label">and counting</div>
-    </div>
 
-    <div class="card counter-card">
-        <div class="counter-label">We've been together for</div>
-        <div class="number" id="togetherDuration">0 days</div>
-        <div class="date-label">and counting</div>
-    </div>
+      <div class="card counter-card">
+
+        <div class="counter-label">
+          We've known each other for
+        </div>
+
+        <div
+          class="number"
+          id="knownDuration"
+        >
+          0 days
+        </div>
+
+        <div class="date-label">
+          and counting
+        </div>
+
+      </div>
+
+
+      <div class="card counter-card">
+
+        <div class="counter-label">
+          We've been together for
+        </div>
+
+        <div
+          class="number"
+          id="togetherDuration"
+        >
+          0 days
+        </div>
+
+        <div class="date-label">
+          and counting
+        </div>
+
+      </div>
+
     </section>
+
 
     <section class="card countdown">
+
       <div class="countdown-top">
+
         <div>
-          <div class="section-title" style="margin:0;">Countdown</div>
-          <div class="date-label">Choose something special to look forward to.</div>
+
+          <div
+            class="section-title"
+            style="margin:0;"
+          >
+            Countdown
+          </div>
+
+          <div class="date-label">
+            Choose something special to look forward to.
+          </div>
+
         </div>
+
+
         <select id="countdownSelect"></select>
+
       </div>
+
 
       <div class="counter-card">
-        <div class="countdown-number" id="countdownDays">0</div>
-        <div class="countdown-event" id="countdownEvent"></div>
+
+        <div
+          class="countdown-number"
+          id="countdownDays"
+        >
+          0
+        </div>
+
+        <div
+          class="countdown-event"
+          id="countdownEvent"
+        ></div>
+
       </div>
+
     </section>
 
+
     <section class="card message-card">
+
       <div class="message-content">
-        <div class="message-title">A LITTLE REMINDER FOR YOU</div>
+
+        <div class="message-title">
+          A LITTLE REMINDER FOR YOU
+        </div>
+
         <p id="message"></p>
-        <button onclick="newMessage()">💌</button>
+
+        <button onclick="newMessage()">
+          💌
+        </button>
+
       </div>
+
     </section>
+
 
     <footer>
       Made with ♡, just for you.
     </footer>
+
   </main>
 
+
   <script>
+
   /*
   ============================================
   PERSONALIZE THESE DATES
@@ -77,6 +157,7 @@
   */
 
   const knownEachOtherDate = "2026-04-25";
+
   const relationshipStartDate = "2026-05-18";
 
 
@@ -84,17 +165,42 @@
   ============================================
   COUNTDOWN EVENTS
   ============================================
+
+  DATE:
+  YYYY-MM-DD
+
+  TIME:
+  24-hour format HH:MM
+
+  Examples:
+
+  19:00 = 7:00 PM
+  20:30 = 8:30 PM
+  00:00 = midnight
+
+  ============================================
   */
 
   const countdownEvents = [
+
     {
       name: "Our Next Anniversary",
-      date: "2027-05-18"
+      date: "2027-05-18",
+      time: "00:00"
     },
+
     {
       name: "Our Next Monthsary",
-      date: "2026-09-18"
+      date: "2026-09-18",
+      time: "00:00"
     },
+
+    {
+      name: "BEBETIME",
+      date: "2026-08-28",
+      time: "06:00"
+    }
+
   ];
 
 
@@ -105,6 +211,7 @@
   */
 
   const messages = [
+
     "I'm so grateful I met you.",
 
     "I love you always.",
@@ -122,6 +229,7 @@
     "Loving you is the easiest thing to do.",
 
     "You deserve all the good things this world has to offer."
+
   ];
 
 
@@ -141,6 +249,42 @@
       month - 1,
       day
     );
+
+  }
+
+
+  /*
+  ============================================
+  PARSE DATE + TIME
+  ============================================
+  */
+
+  function parseDateTime(
+    dateString,
+    timeString
+  ) {
+
+    const [year, month, day] =
+      dateString
+        .split("-")
+        .map(Number);
+
+
+    const [hours, minutes] =
+      timeString
+        .split(":")
+        .map(Number);
+
+
+    return new Date(
+      year,
+      month - 1,
+      day,
+      hours,
+      minutes,
+      0
+    );
+
   }
 
 
@@ -154,13 +298,16 @@
 
     const today = new Date();
 
+
     let years =
       today.getFullYear() -
       startDate.getFullYear();
 
+
     let months =
       today.getMonth() -
       startDate.getMonth();
+
 
     let days =
       today.getDate() -
@@ -168,6 +315,7 @@
 
 
     // Borrow days from previous month
+
     if (days < 0) {
 
       months--;
@@ -180,15 +328,18 @@
         );
 
       days += previousMonth.getDate();
+
     }
 
 
     // Borrow a year
+
     if (months < 0) {
 
       years--;
 
       months += 12;
+
     }
 
 
@@ -197,6 +348,7 @@
       months,
       days
     };
+
   }
 
 
@@ -214,6 +366,7 @@
             : "years"
         }`
       );
+
     }
 
 
@@ -226,6 +379,7 @@
             : "months"
         }`
       );
+
     }
 
 
@@ -241,10 +395,12 @@
             : "days"
         }`
       );
+
     }
 
 
     return parts.join(", ");
+
   }
 
 
@@ -280,6 +436,7 @@
       formatDuration(
         togetherDuration
       );
+
   }
 
 
@@ -289,34 +446,62 @@
   ============================================
   */
 
-  function getDaysUntil(targetDate) {
+  function getTimeUntil(targetDate) {
 
     const now = new Date();
 
-    // Remove time from today's date
-    const today = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate()
-    );
-
-
-    const target = new Date(
-      targetDate.getFullYear(),
-      targetDate.getMonth(),
-      targetDate.getDate()
-    );
-
 
     const difference =
-      target.getTime() -
-      today.getTime();
+      targetDate.getTime() -
+      now.getTime();
 
 
-    return Math.ceil(
-      difference /
-      (1000 * 60 * 60 * 24)
-    );
+    if (difference <= 0) {
+
+      return {
+        total: difference,
+        days: 0,
+        hours: 0,
+        minutes: 0
+      };
+
+    }
+
+
+    const days =
+      Math.floor(
+        difference /
+        (1000 * 60 * 60 * 24)
+      );
+
+
+    const hours =
+      Math.floor(
+        (
+          difference %
+          (1000 * 60 * 60 * 24)
+        ) /
+        (1000 * 60 * 60)
+      );
+
+
+    const minutes =
+      Math.floor(
+        (
+          difference %
+          (1000 * 60 * 60)
+        ) /
+        (1000 * 60)
+      );
+
+
+    return {
+      total: difference,
+      days,
+      hours,
+      minutes
+    };
+
   }
 
 
@@ -329,6 +514,7 @@
 
 
     // Clear existing options
+
     select.innerHTML = "";
 
 
@@ -343,6 +529,7 @@
 
         option.value = index;
 
+
         option.textContent =
           event.name;
 
@@ -350,6 +537,7 @@
         select.appendChild(
           option
         );
+
       }
     );
 
@@ -361,6 +549,7 @@
 
 
     updateCountdown();
+
   }
 
 
@@ -381,12 +570,27 @@
     if (!event) return;
 
 
+    /*
+    Create the target date
+    using BOTH date and time.
+    */
+
     const targetDate =
-      parseDate(event.date);
+      parseDateTime(
+        event.date,
+        event.time
+      );
 
 
-    const days =
-      getDaysUntil(targetDate);
+    /*
+    Calculate days,
+    hours and minutes.
+    */
+
+    const countdown =
+      getTimeUntil(
+        targetDate
+      );
 
 
     const countdownNumber =
@@ -401,28 +605,89 @@
       );
 
 
-    if (days < 0) {
+    /*
+    =========================================
+    DISPLAY COUNTDOWN
+    =========================================
+    */
 
-      countdownNumber.textContent =
-        "Passed";
-
-
-    } else if (days === 0) {
+    if (countdown.total <= 0) {
 
       countdownNumber.textContent =
         "Today ♡";
 
-
-    } else {
-
-      countdownNumber.textContent =
-        `${days} ${
-          days === 1
-            ? "day"
-            : "days"
-        }`;
     }
 
+    else {
+
+      const parts = [];
+
+
+      /*
+      DAYS
+      */
+
+      if (countdown.days > 0) {
+
+        parts.push(
+          `${countdown.days} ${
+            countdown.days === 1
+              ? "day"
+              : "days"
+          }`
+        );
+
+      }
+
+
+      /*
+      HOURS
+      */
+
+      if (countdown.hours > 0) {
+
+        parts.push(
+          `${countdown.hours} ${
+            countdown.hours === 1
+              ? "hour"
+              : "hours"
+          }`
+        );
+
+      }
+
+
+      /*
+      MINUTES
+      */
+
+      if (
+        countdown.minutes > 0 ||
+        parts.length === 0
+      ) {
+
+        parts.push(
+          `${countdown.minutes} ${
+            countdown.minutes === 1
+              ? "minute"
+              : "minutes"
+          }`
+        );
+
+      }
+
+
+      countdownNumber.textContent =
+        parts.join(" ");
+
+    }
+
+
+    /*
+    =========================================
+    DISPLAY EVENT + DATE + TIME
+    =========================================
+    */
 
     countdownEvent.textContent =
       `${event.name} • ${
@@ -434,7 +699,16 @@
             day: "numeric"
           }
         )
+      } at ${
+        targetDate.toLocaleTimeString(
+          undefined,
+          {
+            hour: "numeric",
+            minute: "2-digit"
+          }
+        )
       }`;
+
   }
 
 
@@ -457,6 +731,7 @@
         "I love you. ♡";
 
       return;
+
     }
 
 
@@ -484,6 +759,7 @@
       "message"
     ).textContent =
       messages[index];
+
   }
 
 
@@ -497,8 +773,10 @@
 
   setupCountdowns();
 
+
   // IMPORTANT:
   // Show a message immediately when page loads
+
   newMessage();
 
 
@@ -519,6 +797,7 @@
     60000
   );
 
-</script>
+  </script>
+
 </body>
 </html>
